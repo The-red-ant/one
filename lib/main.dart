@@ -30,8 +30,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-                        const SizedBox(width: 20), 
-
+            const SizedBox(width: 20), 
             const Text(
               "Hello Anthony",
               style: TextStyle(
@@ -53,71 +52,55 @@ class HomeScreen extends StatelessWidget {
       body: const ExampleParallax(),
       // implement BottomAppBar
       bottomNavigationBar: BottomAppBar(
-        color: Colors.green,
-        notchMargin: 10,
-        // make rounded corners & create a notch for the floating action button
-        shape: const AutomaticNotchedShape(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30)),
-          ),
-          StadiumBorder(),
-        ),
-        child: IconTheme(
-          data: const IconThemeData(color: Colors.white, size: 36),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      debugPrint("Menu Pressed");
-                    },
-                    icon: const Icon(Icons.menu)),
-                const SizedBox(
-                  width: 10,
+              color: Colors.green,
+              // Using a custom shape to create a notch for the floating action button
+              shape: const CircularNotchedRectangle(),
+              child: IconTheme(
+                data: const IconThemeData(color: Color.fromARGB(255, 0, 204, 255), size: 36),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            debugPrint("Menu Pressed");
+                          },
+                          icon: const Icon(Icons.menu)),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {
+                            debugPrint("Cart Pressed");
+                          },
+                          icon: const Icon(Icons.shopping_cart)),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {
+                            debugPrint("History Pressed");
+                          },
+                          icon: const Icon(Icons.history)),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {
+                            debugPrint("Settings Pressed");
+                          },
+                          icon: const Icon(Icons.settings)),
+                    ],
+                  ),
                 ),
-                IconButton(
-                    onPressed: () {
-                      debugPrint("Cart Pressed");
-                    },
-                    icon: const Icon(Icons.shopping_cart)),
-                const SizedBox(
-                  width: 10,
-                ),
-                IconButton(
-                    onPressed: () {
-                      debugPrint("History Pressed");
-                    },
-                    icon: const Icon(Icons.history)),
-                const SizedBox(
-                  width: 10,
-                ),
-                IconButton(
-                    onPressed: () {
-                      debugPrint("Settings Pressed");
-                    },
-                    icon: const Icon(Icons.settings)),
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
-      // implement the big floating action button
-      floatingActionButton: FloatingActionButton.large(
-        onPressed: () {
-          debugPrint("Floating Action Button Pressed");
-        },
-        backgroundColor: Colors.amber,
-        shape: ShapeBorder.lerp(
-          const CircleBorder(),
-          const StadiumBorder(),
-          0.5,
-        ),
-        child: const Icon(Icons.add),
-      ),
-      // position the floating action button
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+
+            floatingActionButton: FloatingActionButton.large(
+              onPressed: () {
+                debugPrint("Floating Action Button Pressed");
+              },
+              backgroundColor: const Color.fromARGB(255, 255, 0, 0),
+              shape: const CircleBorder(), // Keep it circular
+              child: const Icon(Icons.add),
+            ),
+
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 }
