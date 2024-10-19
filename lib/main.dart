@@ -27,6 +27,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: [
+                        const SizedBox(width: 20), 
+
+            const Text(
+              "Hello Anthony",
+              style: TextStyle(
+                fontSize: 35, 
+                fontWeight: FontWeight.bold, 
+              ),
+            ),
+            const SizedBox(width: 60), 
+            IconButton(
+              onPressed: () {
+                debugPrint("account");
+              },
+              icon: const Icon(Icons.account_circle,size: 40,),
+            ),
+          ],
+        ),
+      ),
+
       body: const ExampleParallax(),
       // implement BottomAppBar
       bottomNavigationBar: BottomAppBar(
@@ -117,25 +140,7 @@ class ExampleParallax extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(bottom: 20, left: 30,top: 40), // Adds 20 pixels of margin to the bottom
                 child: Row(
-                  children: [
-                    Text(
-                      "Hello Anthony",
-                      style: TextStyle(
-                        fontSize: 35, // Change this to your desired font size
-                        fontWeight: FontWeight.bold, // Use FontWeight.bold for bold text
-                      ),
-                    ),
-                
-                    IconButton(
-                      onPressed: () {
-                        debugPrint("account");
-                      },
-                      icon: const Icon(Icons.account_circle),
-                    ),
-                    const SizedBox(
-                      width: 50,
-                    ),
-                  ],
+
                 ),
               ),
           for (final location in locations)
