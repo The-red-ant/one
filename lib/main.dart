@@ -27,7 +27,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('KindaCode.com')),
       body: const ExampleParallax(),
       // implement BottomAppBar
       bottomNavigationBar: BottomAppBar(
@@ -113,7 +112,32 @@ class ExampleParallax extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        
         children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 20, left: 30,top: 40), // Adds 20 pixels of margin to the bottom
+                child: Row(
+                  children: [
+                    Text(
+                      "Hello Anthony",
+                      style: TextStyle(
+                        fontSize: 35, // Change this to your desired font size
+                        fontWeight: FontWeight.bold, // Use FontWeight.bold for bold text
+                      ),
+                    ),
+                
+                    IconButton(
+                      onPressed: () {
+                        debugPrint("account");
+                      },
+                      icon: const Icon(Icons.account_circle),
+                    ),
+                    const SizedBox(
+                      width: 50,
+                    ),
+                  ],
+                ),
+              ),
           for (final location in locations)
             LocationListItem(
               imageUrl: location.imageUrl,
